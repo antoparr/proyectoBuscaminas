@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear y Mostrar Tablero de Buscaminas</title>
+    <style>
+        body{
+            background-color: #AFACA9;
+        }
+        .todo {
+            margin:5%;
+        }
+
+        td {
+            width: 15px;
+            height: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="todo">
+    <h1>Crear y Mostrar Tablero de Buscaminas</h1>
+    <form method="get">
+
+
+        {% for field in tableForm %}
+            <div class="celdas">
+                <label for= "{{ field.name }}" >{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+        <button type="submit">Crear Tablero</button>
+    </form>
+
+    {% if fila and columna  %}
+    <h2>Tablero de Buscaminas</h2>
+    <table border="1">
+        {% for row in columna %}
+        <tr>
+            {% for cell in fila %}
+            <td ></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    </div>
+</body>
+
+</html>
